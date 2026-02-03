@@ -1,9 +1,20 @@
-function changeColor() {
-    var r = Math.floor(Math.random() * 256);
-    var g = Math.floor(Math.random() * 256);
-    var b = Math.floor(Math.random() * 256);
+var isGreen = false;
+var isFirstClick = true;
 
-    document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-}
+document.getElementById("btn").onclick = function () {
 
-document.getElementById("colorBtn").onclick = changeColor;
+    if (isFirstClick) {
+        document.body.style.backgroundColor = "green";
+        isFirstClick = false;
+        isGreen = true;
+    }
+    else if (isGreen) {
+        document.body.style.backgroundColor = "red";
+        isGreen = false;
+    }
+    else {
+        document.body.style.backgroundColor = "green";
+        isGreen = true;
+    }
+
+};
