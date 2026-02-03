@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex03bis</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+#ft_list {
+    width:300px;
+    border:1px solid black;
+    min-height:200px;
+    padding:10px;
+}
+
+.todo {
+    background:#eee;
+    margin:5px 0;
+    padding:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<button id="new">New</button>
+<div id="ft_list"></div>
+
+<script>
+
+function saveTodos(){
+    var todos = [];
+
+    $(".todo").each(function(){
+        todos.push($(this).text());
+    });
+
+    document.cookie = "todos=" + encodeURIComponent(JSON.stringify(todos)) + "; path=/";
+}
+
+function createTodo(text){
+    var div = $("<div class='todo'></div>").text(text);
+
+    div.click(function(){
+        if(confirm("Remove this TO DO?")){
+            $(this).remove();
+            saveTodos();
+        }
+    });
+
+    $("#ft_list").prepend(div);
+    saveTodos();
+}
+
+function loadTodos(){
+    var cookie = document.cookie.split("; ").find(row => row.startsWith("todos="));
+    if(!cookie) return;
+
+    var todos = JSON.parse(decodeURIComponent(cookie.split("=")[1]));
+
+    todos.reverse().forEach(function(t){
+        createTodo(t);
+    });
+}
+
+$("#new").click(function(){
+    var text = prompt("New TO DO");
+    if(text && text.trim() !== "")
+        createTodo(text.trim());
+});
+
+loadTodos();
+
+</script>
+
+</body>
+</html>

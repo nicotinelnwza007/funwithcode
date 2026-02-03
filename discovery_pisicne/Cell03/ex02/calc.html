@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+</head>
+
+<body>
+
+<input id="left" type="text">
+<select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+</select>
+<input id="right" type="text">
+
+<input type="submit" value="Try me!" onclick="calculate()">
+
+<script>
+function calculate() {
+
+    var left = document.getElementById("left").value;
+    var right = document.getElementById("right").value;
+    var op = document.getElementById("operator").value;
+
+    if (left === "" || right === "" ||
+        isNaN(left) || isNaN(right) ||
+        left < 0 || right < 0 ||
+        !Number.isInteger(Number(left)) ||
+        !Number.isInteger(Number(right))) {
+
+        alert("Error :(");
+        return;
+    }
+
+    left = Number(left);
+    right = Number(right);
+
+    if ((op === "/" || op === "%") && right === 0) {
+        alert("It’s over 9000!");
+        console.log("It’s over 9000!");
+        return;
+    }
+
+    var result;
+
+    if (op === "+") result = left + right;
+    else if (op === "-") result = left - right;
+    else if (op === "*") result = left * right;
+    else if (op === "/") result = left / right;
+    else if (op === "%") result = left % right;
+
+    alert(result);
+    console.log(result);
+}
+
+setInterval(function() {
+    alert("Please, use me...");
+}, 30000);
+</script>
+
+</body>
+</html>

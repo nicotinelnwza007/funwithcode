@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex02bis</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<input id="left">
+<select id="op">
+<option>+</option>
+<option>-</option>
+<option>*</option>
+<option>/</option>
+<option>%</option>
+</select>
+<input id="right">
+
+<input type="submit" value="Try me!" id="calc">
+
+<script>
+
+$("#calc").click(function(){
+
+    var left = $("#left").val();
+    var right = $("#right").val();
+    var op = $("#op").val();
+
+    if(left=="" || right=="" || isNaN(left) || isNaN(right) ||
+       left < 0 || right < 0 ||
+       !Number.isInteger(Number(left)) ||
+       !Number.isInteger(Number(right))) {
+
+        alert("Error :(");
+        return;
+    }
+
+    left = Number(left);
+    right = Number(right);
+
+    if((op=="/" || op=="%") && right==0) {
+        alert("It’s over 9000!");
+        console.log("It’s over 9000!");
+        return;
+    }
+
+    var result;
+
+    if(op=="+") result = left + right;
+    if(op=="-") result = left - right;
+    if(op=="*") result = left * right;
+    if(op=="/") result = left / right;
+    if(op=="%") result = left % right;
+
+    alert(result);
+    console.log(result);
+});
+
+setInterval(function(){
+    alert("Please, use me...");
+},30000);
+
+</script>
+
+</body>
+</html>
