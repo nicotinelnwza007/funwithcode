@@ -1,19 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Resume Selector</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resume Selector - Concert Stage</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      animation: {
+        'spotlight': 'spotlight 3s ease-in-out infinite',
+        'spotlight-2': 'spotlight 3s ease-in-out 1.5s infinite',
+        'stage-lights': 'stage-lights 4s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'slide-up': 'slide-up 0.8s ease-out',
+        'fade-in': 'fade-in 1s ease-out',
+      },
+      keyframes: {
+        spotlight: {
+          '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.1)' },
+        },
+        'stage-lights': {
+          '0%, 100%': { opacity: '0.4', filter: 'hue-rotate(0deg)' },
+          '50%': { opacity: '0.7', filter: 'hue-rotate(45deg)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { boxShadow: '0 0 40px rgba(255, 215, 0, 0.4)' },
+          '50%': { boxShadow: '0 0 80px rgba(255, 215, 0, 0.8)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(50px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+    },
+  },
+};
+</script>
 </head>
+<body class="min-h-screen flex flex-col relative text-white">
 
-<body>
 
-<div class="container">
-    <h1>Select Resume</h1>
+<div class="lines"> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> <div class="line"></div> </div>
 
-    <a href="resume1.html" class="button">Person 1 Resume</a>
-    <a href="resume2.html" class="button">Person 2 Resume</a>
+<div class="flex-1 grid place-items-center p-4 z-10">
+
+
+    <div class="w-full max-w-6xl text-center animate-fade-in p-8 lg:p-0">
+
+        <div class=" mb-8 sm:mb-12 animate-slide-up">
+            <h1 class="concert-title text-6xl sm:text-6xl md:text-8xl font-extrabold text-yellow-400 leading-none">
+                RESUME
+            </h1>
+            <h2 class="concert-title text-2xl sm:text-3xl md:text-5xl font-bold tracking-wider">
+                SHOWCASE
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-10">
+
+            <a href="resume1.html"
+               class="concert-card rounded-3xl p-8 flex flex-col justify-center items-center text-center
+                      aspect-[4/4] hover:scale-80 transition">
+
+                <div class="profile-avatar animate-float">👨‍💻</div>
+                <h2 class="concert-title text-3xl sm:text-4xl text-yellow-400 mt-4">Sochaoki</h2>
+                <p class="text-yellow-300 text-sm mt-2">ถ้าให้เกรดน้อยผมจะเลือกพี่เต้</p>
+
+                <div class="mt-6 bg-yellow-500/20 border border-yellow-500/40 rounded-xl px-6 py-2 font-bold">
+                    Resume →
+                </div>
+            </a>
+
+            <a href="resume2.html"
+               class="concert-card rounded-3xl p-8 flex flex-col justify-center items-center text-center
+                      aspect-[4/4] hover:scale-80 transition">
+
+                <div class="profile-avatar profile-avatar-red animate-float">👩‍💼</div>
+                <h2 class="concert-title text-3xl sm:text-4xl text-red-400 mt-4">ptanapan</h2>
+                <p class="text-red-300 text-sm mt-2">คำคมคมคำ</p>
+
+                <div class="mt-6 bg-red-500/20 border border-red-500/40 rounded-xl px-6 py-2 font-bold">
+                    Resume →
+                </div>
+            </a>
+
+        </div>
+
+    </div>
 </div>
+                    <footer class="text-center py-3 text-xs text-gray-400 drop-shadow">
 
+                    © 2026 Bie the ska. All rights reserved. eiei
+                </footer>
 </body>
+
+
 </html>
