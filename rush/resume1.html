@@ -1,206 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<title>Resume</title>
+    <title>Resume</title>
 
-<style>
+    <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
 
-.parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes float {
 
-@keyframes float {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-}
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-@keyframes glow {
-    0% { text-shadow: 0 0 10px #9333ea; }
-    50% { text-shadow: 0 0 25px #c084fc; }
-    100% { text-shadow: 0 0 10px #9333ea; }
-}
+            50% {
+                transform: translateY(-15px);
+            }
+        }
 
-.animate-fadeUp { animation: fadeUp 1s ease forwards; }
-.animate-float { animation: float 4s ease-in-out infinite; }
-.animate-glow { animation: glow 2.5s infinite; }
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #9333ea;
+            }
 
-.nav-link {
-    position: relative;
-}
+            50% {
+                text-shadow: 0 0 25px #c084fc;
+            }
 
-.nav-link::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #a855f7;
-    left: 0;
-    bottom: -4px;
-    transition: 0.3s;
-}
+            100% {
+                text-shadow: 0 0 10px #9333ea;
+            }
+        }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+        .animate-fadeUp {
+            animation: fadeUp 1s ease forwards;
+        }
 
-</style>
+        .animate-float {
+            animation: float 4s infinite;
+        }
+
+        .animate-glow {
+            animation: glow 2.5s infinite;
+        }
+
+        @keyframes profileA {
+            0%, 49% { opacity: 1 }
+            50%, 100% { opacity: 0 }
+        }
+
+        @keyframes profileB {
+            0%, 49% { opacity: 0 }
+            50%, 100% { opacity: 1 }
+        }
+
+        .animate-profileA {
+            animation: profileA 1s infinite steps(1);
+        }
+
+        .animate-profileB {
+            animation: profileB 1s infinite steps(1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #a855f7;
+            left: 0;
+            bottom: -4px;
+            transition: .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .carousel {
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel>div {
+            scroll-snap-align: center;
+        }
+    </style>
 </head>
 
 <body class="bg-black text-white scroll-smooth overflow-x-hidden">
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-black/70 backdrop-blur border-b border-purple-800 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-        <h1 class="text-xl font-bold text-purple-400 animate-glow">Resume</h1>
-
-        <ul class="flex gap-6">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#footer" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- HERO -->
-<!-- HERO / ABOUT -->
-<section id="about"
-class="parallax min-h-screen flex items-center px-10"
-style="background-image:url('');">
-
-    <div class=" rounded-xl p-10 w-full mx-auto grid md:grid-cols-2 gap-10 items-center min-h-screen">
-
-        <!-- LEFT INFO -->
-        <div class="animate-fadeUp space-y-4 h-full w-full flex flex-col gap-5 justify-center text-center md:text-start lg:ml-24 ">
-
-            <h1 class="text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-transparent">
-                Your Name
-            </h1>
-
-            <p class="text-xl text-purple-300 font-semibold">
-                Full Stack Developer
-            </p>
-
-            <p class="text-gray-300">
-                Age: 20
-            </p>
-
-            <p class="text-gray-300">
-                Hobby: Coding, Gym, Gaming
-            </p>
-
-            <p class="text-gray-400 leading-relaxed">
-                I am passionate about building modern web applications,
-                learning new technologies, and creating beautiful UI experiences.
-            </p>
-            <div class="flex gap-24">
-                <div className="flex flex-col gap-4">
-                    <div className="text-sm sm:text-base">Born in</div>
-                    <div className="font-bold text-[18px] sm:text-[22px]">Bangkok</div>
-                </div>
-    
-                <div className="flex flex-col gap-4">
-                    <div className="text-sm sm:text-base">Ages</div>
-                    <div className="font-bold text-[18px] sm:text-[22px]">17</div>
-                </div>
-    
-                <div className="flex flex-col gap-4">
-                    <div className="text-sm sm:text-base">Gender</div>
-                    <div className="font-bold text-[18px] sm:text-[22px]">Male</div>
-                </div>
-            </div>
+    <nav class="fixed top-0 w-full bg-black/70 backdrop-blur border-b border-purple-800 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <h1 class="text-xl font-bold text-purple-400 animate-glow">Resume</h1>
+            <ul class="flex gap-6">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#footer" class="nav-link">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- RIGHT PROFILE -->
-        <div class="flex justify-center animate-float">
+    <section id="about" class="min-h-screen flex items-center px-6 pt-24">
+        <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
 
-            <img src="https://via.placeholder.com/250"
-            class="rounded-full border-4 border-purple-500 shadow-2xl w-64 h-64 object-cover">
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience"
-class="bg-gray-950 min-h-screen flex items-center justify-center px-6">
-
-    <div class="max-w-4xl w-full space-y-10">
-
-        <h2 class="text-4xl font-bold text-center text-purple-400 animate-fadeUp">
-            Experience & Skills
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-6">
-
-            <div class="p-6 rounded-xl border border-purple-700 bg-black hover:scale-105 transition animate-fadeUp">
-                <h3 class="text-xl font-semibold">Frontend Developer</h3>
-                <p class="text-gray-400 text-sm">Company • 2024 - Present</p>
-                <p class="mt-2 text-gray-300">
-                    Built modern UI and optimized performance.
-                </p>
+            <div class="animate-fadeUp space-y-4 text-center md:text-left max-w-xl">
+                <h1
+                    class="text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-transparent">
+                    Sontud Chaokitiwut
+                </h1>
+                <p class="text-xl text-purple-300 font-semibold">Full Stack Developer (wanna be)</p>
+                <p class="text-gray-400">Hobby: Coding, Gym, Biker</p>
+                <p class="text-gray-500">I love building modern web apps and beautiful UI experiences.</p>
             </div>
 
-            <div class="p-6 rounded-xl border border-purple-700 bg-black hover:scale-105 transition animate-fadeUp">
-                <h3 class="text-xl font-semibold">Intern Developer</h3>
-                <p class="text-gray-400 text-sm">Company • 2023</p>
-                <p class="mt-2 text-gray-300">
-                    Assisted full-stack development tasks.
-                </p>
+            <div class="relative w-64 h-64 animate-float md:ml-auto">
+                <img src="img/sochao.png"
+                    class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-purple-500 animate-profileA" />
+                <img src="img/sochaomouth.png"
+                    class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-purple-500 animate-profileB" />
             </div>
 
         </div>
+    </section>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <section id="skills" class="bg-gray-950 py-24 px-6">
+        <div class="max-w-5xl mx-auto space-y-16">
 
-            <div class="p-4 text-center border border-purple-700 rounded-lg hover:bg-purple-700/20 transition">HTML</div>
-            <div class="p-4 text-center border border-purple-700 rounded-lg hover:bg-purple-700/20 transition">CSS</div>
-            <div class="p-4 text-center border border-purple-700 rounded-lg hover:bg-purple-700/20 transition">JavaScript</div>
-            <div class="p-4 text-center border border-purple-700 rounded-lg hover:bg-purple-700/20 transition">React</div>
-            <div class="p-4 text-center border border-purple-700 rounded-lg hover:bg-purple-700/20 transition">Node.js</div>
-            <div class="p-4 text-center border border-purple-700 rounded-lg hover:bg-purple-700/20 transition">Tailwind</div>
+            <h2 class="text-4xl font-bold text-center text-purple-400 animate-fadeUp">
+                Experience & Skills
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-6 bg-black border border-purple-700 rounded-xl hover:scale-105 transition">
+                    <h3 class="font-semibold">Frontend Developer</h3>
+                    <p class="text-sm text-gray-400">2024 - Present</p>
+                    <p class="mt-2 text-gray-300">Build responsive websites with Tailwind & React.</p>
+                </div>
+
+                <div class="p-6 bg-black border border-purple-700 rounded-xl hover:scale-105 transition">
+                    <h3 class="font-semibold">Student Developer</h3>
+                    <p class="text-sm text-gray-400">KMITL IT</p>
+                    <p class="mt-2 text-gray-300">Learning full-stack web development and UI design.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">HTML</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">CSS</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">JavaScript</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">React</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">Node.js</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">TailwindCSS</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">Git / GitHub</div>
+                <div class="p-3 border border-purple-700 rounded-lg text-center hover:bg-purple-700/20">Responsive Design</div>
+            </div>
 
         </div>
+    </section>
 
-    </div>
-</section>
+    <section id="projects" class="bg-black py-24">
+        <h2 class="text-4xl font-bold text-center text-purple-400 mb-12 animate-fadeUp">My Projects</h2>
 
-<!-- FOOTER CONTACT -->
-<footer id="footer" class="bg-black border-t border-purple-800 py-12 text-center">
+        <div class="carousel flex gap-6 overflow-x-auto px-6">
 
-    <h2 class="text-3xl font-bold text-purple-400 mb-6 animate-fadeUp">
-        Contact Me
-    </h2>
+            <a href="https://siam-guide-8888.vercel.app/" target="_blank"
+                class="min-w-[90%] md:min-w-[48%] lg:min-w-[32%] bg-gray-950 border border-purple-700 rounded-xl p-4 hover:scale-105 transition">
+                <div class="aspect-video w-full overflow-hidden rounded-lg mb-3">
+                    <img src="img/siam-guide.png" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-purple-300 font-bold text-center">Siam Guide</h3>
+                <p class="text-gray-400 text-sm text-center">Travel guide project website</p>
+            </a>
 
-    <div class="space-y-2 text-gray-300 mb-6">
-        <p>Email: your@email.com</p>
-        <p>GitHub: github.com/yourname</p>
-        <p>LinkedIn: linkedin.com/in/yourname</p>
-    </div>
+            <a href="https://itgg-2025-vgiv.vercel.app/" target="_blank"
+                class="min-w-[90%] md:min-w-[48%] lg:min-w-[32%] bg-gray-950 border border-purple-700 rounded-xl p-4 hover:scale-105 transition">
+                <div class="aspect-video w-full overflow-hidden rounded-lg mb-3">
+                    <img src="img/itgg-2025.png" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-purple-300 font-bold text-center">ITGG 2025</h3>
+                <p class="text-gray-400 text-sm text-center">IT themed event website</p>
+            </a>
 
-    <button class="px-8 py-3 bg-purple-600 rounded-lg font-semibold
-    hover:bg-purple-700 hover:scale-110 transition">
-        Send Message
-    </button>
+            <a href="https://katang.vercel.app/" target="_blank"
+                class="min-w-[90%] md:min-w-[48%] lg:min-w-[32%] bg-gray-950 border border-purple-700 rounded-xl p-4 hover:scale-105 transition">
+                <div class="aspect-video w-full overflow-hidden rounded-lg mb-3">
+                    <img src="img/katang.png" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-purple-300 font-bold text-center">Katang Portfolio</h3>
+                <p class="text-gray-400 text-sm text-center">Personal portfolio site</p>
+            </a>
 
-    <p class="mt-8 text-sm text-gray-500">
-        © 2026 Your Name
-    </p>
+            <a href="https://mybio-git-main-kaitos-projects-60e2c4a6.vercel.app/" target="_blank"
+                class="min-w-[90%] md:min-w-[48%] lg:min-w-[32%] bg-gray-950 border border-purple-700 rounded-xl p-4 hover:scale-105 transition">
+                <div class="aspect-video w-full overflow-hidden rounded-lg mb-3">
+                    <img src="img/siam-guide.png" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-purple-300 font-bold text-center">MyBio</h3>
+                <p class="text-gray-400 text-sm text-center">Bio / profile showcase</p>
+            </a>
 
-</footer>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-black border-t border-purple-800 py-12 text-center">
+        <h2 class="text-2xl text-purple-400 mb-6">Contact</h2>
+        <p>Email: kaito.katang@gmail.com</p>
+        <p>GitHub: github.com/nicotinelnwza007</p>
+        <p>Instagram: instagram.com/n1cotinee_e</p>
+        <p class="mt-8 text-gray-500 text-sm">© 2026 n1cotinee_e</p>
+    </footer>
 
 </body>
+
 </html>
