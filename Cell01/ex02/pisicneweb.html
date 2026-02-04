@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+    </style>
 </head>
 <body>
-    <div class="flex flex-col justify-center items-center">
-        <h1 class="text-3xl font-bold">Piscine Web</h1>
-        <img src="pisicneweb02.png" alt="image" width="500" height="600">
+
+    <div class="container">
+        <h1>Piscine Web</h1>
+        <img src="pisicneweb02.png" alt="image" width="500  " height="300">
     </div>
+
 </body>
 </html>
