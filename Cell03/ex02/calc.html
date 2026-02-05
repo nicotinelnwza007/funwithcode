@@ -26,18 +26,22 @@ function calculate() {
     var right = document.getElementById("right").value;
     var op = document.getElementById("operator").value;
 
-    if (left === "" || right === "" ||
-        isNaN(left) || isNaN(right) ||
-        left < 0 || right < 0 ||
-        !Number.isInteger(Number(left)) ||
-        !Number.isInteger(Number(right))) {
+    left = left.trim();
+    right = right.trim();
 
+    if (
+        left === "" || right === "" ||
+        isNaN(left) || isNaN(right) ||
+        Number(left) < 0 || Number(right) < 0 ||
+        !Number.isInteger(Number(left)) ||
+        !Number.isInteger(Number(right))
+    ) {
         alert("Error :(");
         return;
     }
 
-    left = Number(left);
-    right = Number(right);
+    left = parseInt(left);
+    right = parseInt(right);
 
     if ((op === "/" || op === "%") && right === 0) {
         alert("It’s over 9000!");
