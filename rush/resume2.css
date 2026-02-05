@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+nav {
+    background-color: #a0682d;
+    color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+#about img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+
+#experience {
+    background-color: #ecda8a;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 15px auto;
+    width: 70%;
+    border-radius: 10px;
+}
+
+#contact {
+    background-color: #222;
+    color: white;
+}
+
+#contact a {
+    color: white;
+    margin: 0 10px;
+}
