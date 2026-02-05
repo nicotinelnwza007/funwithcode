@@ -8,39 +8,53 @@
 <body>
 
 <div class="menu">
-    <div class="menu-title">SNCF Drop-down Menu</div>
+    <h2 class="menu-title"></h2>SNCF Sandwich Builder</h2>
 
     <ul class="dropdown">
-        <li>
-            Bread
-            <ul>
+
+        <li class="item">
+            <button class="btn">Bread ▾</button>
+            <ul class="submenu">
                 <li>White baguette</li>
                 <li>Whole wheat</li>
             </ul>
         </li>
-        <li>
-            Cheese
-            <ul>
+
+        <li class="item">
+            <button class="btn">Cheese ▾</button>
+            <ul class="submenu">
                 <li>Emmental</li>
                 <li>Comté</li>
             </ul>
         </li>
-        <li>
-            Ham
-            <ul>
+
+        <li class="item">
+            <button class="btn">Ham ▾</button>
+            <ul class="submenu">
                 <li>Classic ham</li>
                 <li>Smoked ham</li>
             </ul>
         </li>
-        <li>
-            Extras
-            <ul>
+
+        <li class="item">
+            <button class="btn">Extras ▾</button>
+            <ul class="submenu">
                 <li>Butter</li>
                 <li>Pickles</li>
             </ul>
         </li>
+
     </ul>
 </div>
+
+<script>
+document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const item = btn.parentElement;
+        item.classList.toggle("active");
+    });
+});
+</script>
 
 </body>
 </html>
