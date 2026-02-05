@@ -100,14 +100,18 @@ body {
 }
 
 .profile-avatar {
-  width: 120px;
-  height: 120px;
+  width: clamp(80px, 25vw, 120px);
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: 4px solid rgba(255,215,0,.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 70px;
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .profile-avatar-red {
